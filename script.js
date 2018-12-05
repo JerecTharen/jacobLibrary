@@ -103,7 +103,7 @@ class Libray {
             let initial;
             let newPlace = y;
             for (let i = y; i < this.bookShelf.length; i++) {
-                if (this.bookShelf[i].title < lowest) {
+                if (this.bookShelf[i][sortTerm] < lowest) {
                     initial = i;
                     temp = this.bookShelf[i];
                 }
@@ -208,7 +208,7 @@ jacobsLibrary.addBook(hamlet);
 jacobsLibrary.addBook(ulysses);
 jacobsLibrary.addBook(donQuixote);
 jacobsLibrary.addBook(lostTime);
-console.log(jacobsLibrary.searchForBook('The Great Gatsby'));
+// console.log(jacobsLibrary.searchForBook('The Great Gatsby'));
 function createTitle(title) {
     return `<h1>${title}</h1>`;
 }

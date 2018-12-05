@@ -227,7 +227,7 @@ jacobsLibrary.addBook(hamlet);
 jacobsLibrary.addBook(ulysses);
 jacobsLibrary.addBook(donQuixote);
 jacobsLibrary.addBook(lostTime);
-console.log(jacobsLibrary.searchForBook('The Great Gatsby'));
+// console.log(jacobsLibrary.searchForBook('The Great Gatsby'));
 
 function createTitle(title: string): string{
     return `<h1>${title}</h1>`;
