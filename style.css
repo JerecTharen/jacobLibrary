@@ -19,4 +19,16 @@ body{
     flex-direction: column;
     padding: 2em;
     margin: 1.5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #FFF;
+    align-items: center;
+}
+.book p, .book h3, .book h2, .book h1 {
+    background-color: #143642;
+    width: 50%;
+    border-radius: .25em;
+}
+#modal{
+    display: none;
 }
