@@ -42,7 +42,7 @@ class Libray {
         if (noCopy) {
             this.bookShelf.push(book);
         }
-        this.sortLibrary();
+        this.sortLibrary(SortType.title);
     }
     removeBook(title) {
         let index;
@@ -70,13 +70,35 @@ class Libray {
         return found;
     }
     sortLibrary(sortParam) {
-        // let sortTerm;
-        // switch(sortParam){
-        //     case SortType.title:
-        //         sortTerm =
-        // }
+        let sortTerm;
+        switch (sortParam) {
+            case SortType.title:
+                sortTerm = 'title';
+                break;
+            case SortType.author:
+                sortTerm = 'author';
+                break;
+            case SortType.genre:
+                sortTerm = 'genre';
+                break;
+            case SortType.oLang:
+                sortTerm = 'originalLanguage';
+                break;
+            case SortType.originalTitle:
+                sortTerm = 'originalTitle';
+                break;
+            case SortType.pageNum:
+                sortTerm = 'pageNum';
+                break;
+            case SortType.pubYear:
+                sortTerm = 'yearOfPublication';
+                break;
+            default:
+                sortTerm = 'title';
+                break;
+        }
         for (let y = 0; y < this.bookShelf.length - 1; y++) {
-            let lowest = this.bookShelf[y].title;
+            let lowest = this.bookShelf[y][sortTerm];
             let temp;
             let initial;
             let newPlace = y;
@@ -258,3 +280,10 @@ function drawPage(bookshelf) {
     }
 }
 drawPage(jacobsLibrary.bookShelf);
+// console.log(jacobsLibrary.bookShelf[0].title);
+// jacobsLibrary.sortLibrary(SortType.genre);
+// jacobsLibrary.sortLibrary(SortType.author);
+// jacobsLibrary.sortLibrary(SortType.pubYear);
+// jacobsLibrary.sortLibrary(SortType.originalTitle);
+// jacobsLibrary.sortLibrary(SortType.pageNum);
+// console.log(jacobsLibrary.bookShelf[0].title);

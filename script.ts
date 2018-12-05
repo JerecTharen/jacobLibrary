@@ -57,7 +57,7 @@ class Libray{
         if(noCopy){
             this.bookShelf.push(book);
         }
-        this.sortLibrary();
+        this.sortLibrary(SortType.title);
     }
     removeBook(title: string): Book{
         let index: number;
@@ -86,18 +86,40 @@ class Libray{
         return found;
     }
     sortLibrary(sortParam?: SortType):void{
-        // let sortTerm;
-        // switch(sortParam){
-        //     case SortType.title:
-        //         sortTerm =
-        // }
+        let sortTerm;
+        switch(sortParam){
+            case SortType.title:
+                sortTerm = 'title';
+                break;
+            case SortType.author:
+                sortTerm = 'author';
+                break;
+            case SortType.genre:
+                sortTerm = 'genre';
+                break;
+            case SortType.oLang:
+                sortTerm = 'originalLanguage';
+                break;
+            case SortType.originalTitle:
+                sortTerm = 'originalTitle';
+                break;
+            case SortType.pageNum:
+                sortTerm = 'pageNum';
+                break;
+            case SortType.pubYear:
+                sortTerm = 'yearOfPublication';
+                break;
+            default:
+                sortTerm = 'title';
+                break;
+        }
         for(let y = 0; y < this.bookShelf.length-1; y++) {
-            let lowest: string = this.bookShelf[y].title;
+            let lowest: string = this.bookShelf[y][sortTerm];
             let temp: Book;
             let initial: number;
             let newPlace: number = y;
             for (let i = y; i < this.bookShelf.length; i++) {
-                if (this.bookShelf[i].title < lowest) {
+                if (this.bookShelf[i][sortTerm] < lowest) {
                     initial = i;
                     temp = this.bookShelf[i];
                 }
@@ -279,3 +301,10 @@ function drawPage(bookshelf: Book[]):void{
     }
 }
 drawPage(jacobsLibrary.bookShelf);
+// console.log(jacobsLibrary.bookShelf[0].title);
+// jacobsLibrary.sortLibrary(SortType.genre);
+// jacobsLibrary.sortLibrary(SortType.author);
+// jacobsLibrary.sortLibrary(SortType.pubYear);
+// jacobsLibrary.sortLibrary(SortType.originalTitle);
+// jacobsLibrary.sortLibrary(SortType.pageNum);
+// console.log(jacobsLibrary.bookShelf[0].title);
