@@ -1,0 +1,22 @@
+body,html{
+    width: 100%;
+    height: auto;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.containsAll{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book{
+    border: solid black 3px;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    margin: 1.5em;
+}
